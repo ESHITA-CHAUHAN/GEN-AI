@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#171714">
+    <meta name="description" content="A thoughtful AI writing studio for clear, polished rewrites and source-aware summaries.">
+    <title>Rewrite Studio — Clear writing, kept yours</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css?v=bright-dark-20261112">
+    <script src="/assets/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="Rewrite Studio home">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="10.5"/><path d="M18 2.8v6.1m0 18.2v6.1M2.8 18h6.1m18.2 0h6.1M7.2 7.2l4.3 4.3m13 13 4.3 4.3m0-21.6-4.3 4.3m-13 13-4.3 4.3"/><path d="m18 11-3 7 7 7-2-8-2-6Z"/></svg></span>
+          <span class="brand-name">rewrite studio</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a class="nav-link is-current" href="#home">Home</a>
+          <a class="nav-link" href="#workspace">Studio</a>
+          <a class="nav-link" href="#howItWorks">About</a>
+        </nav>
+        <div class="topbar-right">
+          <span class="service-status" id="serviceStatus" data-state="checking"><span class="status-dot"></span><span id="serviceStatusText">Checking AI</span></span>
+          <a class="topbar-cta" href="#workspace">Start writing <span aria-hidden="true">↘</span></a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="home">
+          <div class="hero-eyebrow"><span></span> A WRITING ROOM FOR YOUR IDEAS <span></span></div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="hero-oval"><div class="art-page"><span class="art-page-mark">✳</span><span class="art-page-kicker">A NOTE TO SELF</span><span class="art-lines"></span><span class="art-lines short"></span><span class="art-lines"></span><span class="art-lines medium"></span><span class="art-page-word">meaning</span></div></div>
+          </div>
+          <div class="hero-title-wrap"><h1>Rewrite <em>Studio</em></h1></div>
+          <div class="hero-caption"><span>CLARITY</span><i>✦</i><span>VOICE</span><i>✦</i><span>MEANING</span></div>
+          <p class="hero-subtitle">A little more clarity. Still entirely yours.</p>
+          <a class="hero-cta" href="#workspace">Enter the writing room <span aria-hidden="true">↓</span></a>
+        </section>
+
+        <div class="workspace-intro"><span class="section-overline">THE WRITING ROOM</span><p>Shape your draft, then choose the words that feel right.</p></div>
+        <section class="workspace" id="workspace" aria-label="Rewrite workspace">
+          <section class="panel editor-panel" aria-labelledby="editorTitle">
+            <div class="panel-heading">
+              <div class="step-badge">01</div>
+              <div><p class="panel-kicker">START WITH YOUR WORDS</p><h2 id="editorTitle">Your draft</h2></div>
+            </div>
+
+            <label class="field-label" for="source">Paste or type your text</label>
+            <div class="textarea-wrap">
+              <textarea id="source" name="source" maxlength="5000" placeholder="Write naturally. We’ll help with the polish…" spellcheck="true"></textarea>
+              <div class="textarea-bottom"><button class="text-button" id="exampleButton" type="button">Try an example</button><span class="char-count"><span id="charCount">0</span> / 5,000</span></div>
+            </div>
+
+            <div class="settings-block">
+              <div class="settings-heading"><span class="settings-label">Writing style</span><span class="settings-hint">Choose the feel of your rewrite</span></div>
+              <div class="style-options" role="group" aria-label="Writing style">
+                <button class="style-option is-selected" type="button" data-style="clear" aria-pressed="true"><span class="style-icon style-icon-clear">Aa</span><span><strong>Clear</strong><small>Simple and direct</small></span></button>
+                <button class="style-option" type="button" data-style="formal" aria-pressed="false"><span class="style-icon style-icon-formal">Aa</span><span><strong>Professional</strong><small>Polished and composed</small></span></button>
+                <button class="style-option" type="button" data-style="friendly" aria-pressed="false"><span class="style-icon style-icon-friendly">Aa</span><span><strong>Friendly</strong><small>Warm and natural</small></span></button>
+              </div>
+              <label class="compare-toggle" for="bothStyles">
+                <span class="toggle-copy"><strong>Compare with a second style</strong><small>Get a professional alternative too</small></span>
+                <span class="switch"><input id="bothStyles" type="checkbox" checked><span class="switch-track"></span></span>
+              </label>
+            </div>
+
+            <button class="rewrite-button" id="rewriteButton" type="button"><span class="button-sparkle" aria-hidden="true">✳</span><span id="rewriteButtonText">Rewrite my text</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+            <p class="form-error" id="formError" role="alert" hidden></p>
+            <div class="input-footnote"><svg viewBox="0 0 18 18" aria-hidden="true"><rect x="4" y="7.5" width="10" height="8" rx="2"/><path d="M6.5 7.5V5a2.5 2.5 0 0 1 5 0v2.5"/></svg><span>Your draft is sent to the configured AI provider only when you request a rewrite. This app does not save drafts; provider policies may apply.</span></div>
+          </section>
+
+          <section class="panel results-panel" aria-labelledby="resultsTitle" aria-live="polite">
+            <div class="results-header">
+              <div class="panel-heading results-heading">
+                <div class="step-badge step-badge-violet">02</div>
+                <div><p class="panel-kicker">SIDE BY SIDE</p><h2 id="resultsTitle">Your rewrites</h2></div>
+              </div>
+              <button class="clear-button" id="clearButton" type="button" aria-label="Clear draft and results" title="Clear draft and results"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 5h12M8 5V3.5h4V5m2 0-.6 11H6.6L6 5m2.5 3v5m3-5v5"/></svg><span>Clear</span></button>
+            </div>
+
+            <div class="empty-state" id="emptyState">
+              <div class="empty-art" aria-hidden="true"><div class="empty-sheet sheet-back"></div><div class="empty-sheet sheet-front"><span></span><span></span><span></span><i>✳</i></div></div>
+              <h3>Your words, with a little more clarity.</h3>
+              <p>Your rewrites will appear here. Add a draft and choose <strong>Rewrite my text</strong> to get started.</p>
+              <div class="empty-pills"><span>Grammar</span><span>Clarity</span><span>Meaning preserved</span></div>
+            </div>
+
+            <div class="results-content" id="resultsContent" hidden>
+              <div class="source-preview result-card">
+                <div class="result-card-heading"><div><span class="result-label label-source">YOUR ORIGINAL</span><h3>Source text</h3></div><button class="copy-button" type="button" data-copy="original" aria-label="Copy original text"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="7" y="7" width="9" height="10" rx="1.5"/><path d="M12 7V4.5A1.5 1.5 0 0 0 10.5 3h-6A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13H7"/></svg><span>Copy</span></button></div>
+                <p class="result-text source-text" id="originalText"></p>
+              </div>
+              <div class="rewrite-cards" id="rewriteCards">
+                <article class="result-card rewrite-card rewrite-card-primary">
+                  <div class="result-card-heading"><div><span class="result-label label-primary" id="primaryLabel">CLEAR &amp; CONCISE</span><h3 id="primaryTitle">Clear and concise</h3></div><button class="copy-button" type="button" data-copy="primary" aria-label="Copy clear rewrite"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="7" y="7" width="9" height="10" rx="1.5"/><path d="M12 7V4.5A1.5 1.5 0 0 0 10.5 3h-6A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13H7"/></svg><span>Copy</span></button></div>
+                  <p class="result-text" id="primaryText"></p>
+                </article>
+                <article class="result-card rewrite-card rewrite-card-secondary" id="secondaryCard" hidden>
+                  <div class="result-card-heading"><div><span class="result-label label-secondary" id="secondaryLabel">ANOTHER OPTION</span><h3 id="secondaryTitle">Professional</h3></div><button class="copy-button" type="button" data-copy="secondary" aria-label="Copy second rewrite"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="7" y="7" width="9" height="10" rx="1.5"/><path d="M12 7V4.5A1.5 1.5 0 0 0 10.5 3h-6A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13H7"/></svg><span>Copy</span></button></div>
+                  <p class="result-text" id="secondaryText"></p>
+                </article>
+              </div>
+              <div class="insights-grid">
+                <article class="insight-card facts-card"><div class="insight-icon facts-icon" aria-hidden="true">✓</div><div><span class="insight-label">ORIGINAL WORDING</span><h3>Statements in your text</h3><ul id="factsList"></ul></div></article>
+                <article class="insight-card meaning-card"><div class="insight-icon meaning-icon" aria-hidden="true">✳</div><div><span class="insight-label">A SHORT READ</span><h3>What it says</h3><p id="interpretationText"></p><small id="interpretationNote">A generated summary can reflect interpretation. Check it against your source.</small></div></article>
+              </div>
+              <div class="result-meta"><span class="result-ready"><span></span> Rewrite complete</span><span id="modelLabel"></span></div>
+            </div>
+          </section>
+        </section>
+
+        <section class="value-strip" id="howItWorks" aria-label="How Rewrite Studio works">
+          <div class="value-item"><span class="value-number">01</span><span><strong>Your meaning comes first</strong><small>Improve expression without adding claims.</small></span></div>
+          <div class="value-divider"></div>
+          <div class="value-item"><span class="value-number">02</span><span><strong>See the difference</strong><small>Compare styles before you choose.</small></span></div>
+          <div class="value-divider"></div>
+          <div class="value-item"><span class="value-number">03</span><span><strong>You stay in control</strong><small>Copy only the version you want.</small></span></div>
+        </section>
+      </main>
+
+      <footer class="footer"><a class="footer-brand" href="/">rewrite studio</a><span>Thoughtful writing, made simpler.</span><span class="footer-right">Review every rewrite before you use it.</span></footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "rewrite-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "node scripts/check-build.mjs",
+    "start": "netlify dev"
+  },
+  "devDependencies": {
+    "netlify-cli": "^27.17.0"
+  }
+}
